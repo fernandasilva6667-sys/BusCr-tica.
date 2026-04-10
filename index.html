@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Projeto Transporte Público</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #eef3f8;
+    }
+
+    header {
+      background: #1565c0;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      padding: 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #1565c0;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    button:hover {
+      background: #0d47a1;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Melhoria do Transporte Público</h1>
+  <p>Projeto de avaliação e sugestões dos usuários</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h3>Avaliar ônibus</h3>
+    <input id="linha" placeholder="Número da linha">
+    <textarea id="avaliacao" placeholder="Como foi sua experiência?"></textarea>
+    <button onclick="enviarAvaliacao()">Enviar avaliação</button>
+    <p id="msg1"></p>
+  </div>
+
+  <div class="card">
+    <h3>Relatar problema</h3>
+    <textarea id="problema" placeholder="Descreva o problema (atraso, lotação, etc)"></textarea>
+    <button onclick="enviarProblema()">Enviar relato</button>
+    <p id="msg2"></p>
+  </div>
+
+</div>
+
+<script>
+  function enviarAvaliacao() {
+    let linha = document.getElementById("linha").value;
+    let avaliacao = document.getElementById("avaliacao").value;
+
+    if(linha && avaliacao){
+      document.getElementById("msg1").innerText = "Avaliação enviada com sucesso!";
+    } else {
+      document.getElementById("msg1").innerText = "Preencha todos os campos.";
+    }
+  }
+
+  function enviarProblema() {
+    let problema = document.getElementById("problema").value;
+
+    if(problema){
+      document.getElementById("msg2").innerText = "Problema enviado com sucesso!";
+    } else {
+      document.getElementById("msg2").innerText = "Descreva o problema.";
+    }
+  }
+</script>
+
+</body>
+</html>
